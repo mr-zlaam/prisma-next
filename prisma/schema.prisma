@@ -14,11 +14,14 @@ datasource db {
 }
 
 model Post {
-  id        String   @id @default(uuid())
+  id        String   @id @default(cuid())
   title     String
   slug      String   @unique()
   content   String
   published Boolean? @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@index([slug])
+  @@map("Post")
 }
