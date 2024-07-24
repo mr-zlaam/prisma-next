@@ -18,7 +18,11 @@ async function Post({ params }: IDTYPE) {
         <h1 className="text-3xl font-bold text-center my-10"></h1>
         <h1>{post?.title}</h1>
         <h1>{post?.content}</h1>
-        <h1>{post?.createdAt.toString()}</h1>
+        <h1 className="w-full flex gap-3">
+          {post?.published ? "published" : "draft"}:
+          {post?.createdAt.toLocaleTimeString()},
+          {post?.createdAt.toLocaleDateString()}
+        </h1>
       </section>
     </>
   );
