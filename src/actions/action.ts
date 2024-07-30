@@ -16,6 +16,7 @@ export async function CreatePost(formData: FormData) {
       slug: slugify(formData.get("title") as string),
       content: formData.get("content") as string,
       published: formData.get("published") === "on" ? true : false,
+      author: formData.get("author") as string,
     },
   });
   revalidatePath("/posts");
